@@ -6,7 +6,6 @@ export default function Button({ isText, handleClick, children, ...props }) {
         <button
             type="button"
             className={isText ? stylesAsText: stylesAsBtn}
-            onClick={handleClick}
             {...props}
         >
             {children}

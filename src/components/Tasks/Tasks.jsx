@@ -45,7 +45,7 @@ export default function Tasks() {
                     placeholder="Task name"
                     ref={taskNameValue}
                 />
-                <Button handleClick={handleAddTaskBtnClick}>Add task</Button>
+                <Button onClick={handleAddTaskBtnClick}>Add task</Button>
             </div>
 
             <ul>
@@ -54,7 +54,7 @@ export default function Tasks() {
                         <li key={item.id}>
                             <div>
                                 <p>{item.taskName}</p>
-                                <Button handleClick={() => handleClearTaskBtnClick(item.id)}>Clear</Button>
+                                <Button onClick={() => handleClearTaskBtnClick(item.id)}>Clear</Button>
                             </div>
                         </li>
                     );

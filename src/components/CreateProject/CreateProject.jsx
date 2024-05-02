@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import Button from "../Button/Button.jsx";
 import Input from "../Input/Input.jsx";
 
-export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick }) {
+export default function CreateProject({ onPanelChange, handleSaveBtnClick }) {
     const projectTitle = useRef();
     const projectDesc = useRef();
     const projectDueDate = useRef();
@@ -24,8 +24,8 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
     return (
         <section className="flex flex-col justify-center grow px-8">
             <menu className="flex items-center justify-end gap-4 my-4">
-                <li><Button isText handleClick={handleCancelBtnClick}>Cancel</Button></li>
-                <li><Button handleClick={collectDataAndSave}>Save</Button></li>
+                <li><Button onClick={onPanelChange} isText>Cancel</Button></li>
+                <li><Button onClick={collectDataAndSave}>Save</Button></li>
             </menu>
 
             <ul>

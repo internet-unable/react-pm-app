@@ -42,29 +42,30 @@ function App() {
         setActiveProject(item);
     }
 
+    function handlePanelChange(type) {
+        setActivePanel(type);
+    }
+
     function resolvePanelTypeToShow() {
         switch (activePanel) {
             case panels.noProjectSelected:
-                return <NoProject handleCreateBtnClick={() => setActivePanel(panels.addProject)} />;
+                return <NoProject onPanelChange={() => handlePanelChange(panels.addProject)} />;
 
             case panels.addProject:
                 return <CreateProject
-                            handleCancelBtnClick={() => setActivePanel(panels.noProjectSelected)}
+                            onPanelChange={() => handlePanelChange(panels.noProjectSelected)}
                             handleSaveBtnClick={saveNewProject}
                         />;
 
             case panels.selectedProject:
                 return <SelectedProject project={activeProject} handleDeleteBtnClick={deleteSelectedProject} />;
-
-            default:
-                return <NoProject handleCreateBtnClick={() => setActivePanel(panels.addProject)} />;
         }
     }
 
     return (
         <main className="h-screen pt-8 flex">
             <Sidebar
-                handleAddBtnClick={() => setActivePanel(panels.addProject)}
+                onPanelChange={() => handlePanelChange(panels.addProject)}
                 projectsList={projectsList}
                 selectActiveProject={selectActiveProject}
             />
