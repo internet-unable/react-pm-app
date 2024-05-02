@@ -2,30 +2,31 @@ import { useRef, useState } from "react";
 import Button from "../Button/Button.jsx";
 import Input from "../Input/Input.jsx";
 
-export default function CreateProject({ onPanelChange, handleSaveBtnClick }) {
+export default function CreateProject({ onCancelProjectCreation, onSave }) {
     const projectTitle = useRef();
     const projectDesc = useRef();
     const projectDueDate = useRef();
     const [titleInvalid, setTitleInvalid] = useState('');
 
-    function collectDataAndSave() {
+    function handleSave() {
         if (projectTitle.current.value) {
-            handleSaveBtnClick({
+            onSave({
                 id: Math.floor(Math.random() * 1000),
                 title: projectTitle.current.value,
                 desc: projectDesc.current.value,
                 dueDate: projectDueDate.current.value,
             });
         } else {
-            setTitleInvalid('bg-red-500');
+            // setTitleInvalid('bg-red-500');
+            console.log('Title is empty');
         }
     }
 
     return (
         <section className="flex flex-col justify-center grow px-8">
             <menu className="flex items-center justify-end gap-4 my-4">
-                <li><Button onClick={onPanelChange} isText>Cancel</Button></li>
-                <li><Button onClick={collectDataAndSave}>Save</Button></li>
+                <li><Button onClick={onCancelProjectCreation} isText>Cancel</Button></li>
+                <li><Button onClick={handleSave}>Save</Button></li>
             </menu>
 
             <ul>

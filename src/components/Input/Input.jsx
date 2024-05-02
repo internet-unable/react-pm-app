@@ -6,7 +6,7 @@ const Input = forwardRef(({ isTextarea, label, id, ...props }, ref) => {
 
     return (
         <>
-            {label && <label htmlFor={id} className={stylesForLabel} >{label}</label>}
+            {label && <label htmlFor={id} className={stylesForLabel}>{label}</label>}
             {isTextarea ? 
                 (<textarea id={id} className={stylesForField} {...props} ref={ref} />)
                 :
