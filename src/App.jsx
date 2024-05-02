@@ -46,20 +46,22 @@ function App() {
         setActivePanel(type);
     }
 
-    function resolvePanelTypeToShow() {
-        switch (activePanel) {
-            case panels.noProjectSelected:
-                return <NoProject onPanelChange={() => handlePanelChange(panels.addProject)} />;
+    let content;
+    switch (activePanel) {
+        case panels.noProjectSelected:
+            content = <NoProject onPanelChange={() => handlePanelChange(panels.addProject)} />;
+            break;
 
-            case panels.addProject:
-                return <CreateProject
-                            onPanelChange={() => handlePanelChange(panels.noProjectSelected)}
-                            handleSaveBtnClick={saveNewProject}
-                        />;
+        case panels.addProject:
+            content = <CreateProject
+                        onPanelChange={() => handlePanelChange(panels.noProjectSelected)}
+                        handleSaveBtnClick={saveNewProject}
+                    />;
+            break;
 
-            case panels.selectedProject:
-                return <SelectedProject project={activeProject} handleDeleteBtnClick={deleteSelectedProject} />;
-        }
+        case panels.selectedProject:
+            content = <SelectedProject project={activeProject} handleDeleteBtnClick={deleteSelectedProject} />;
+            break;
     }
 
     return (
@@ -69,7 +71,8 @@ function App() {
                 projectsList={projectsList}
                 selectActiveProject={selectActiveProject}
             />
-            {resolvePanelTypeToShow()}
+
+            {content}
         </main>
     );
 }
