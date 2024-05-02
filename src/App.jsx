@@ -62,8 +62,7 @@ function App() {
     }
 
     return (
-        <main className="h-full flex">
-            {/* Todo: separete sidebar from other content, because right now React re-render it on each state change */}
+        <main className="h-screen my-8">
             <Sidebar
                 handleAddBtnClick={() => setActivePanel(panels.addProject)}
                 projectsList={projectsList}

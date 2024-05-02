@@ -2,9 +2,11 @@ import Button from "../Button/Button.jsx";
 
 export default function Sidebar({ handleAddBtnClick, projectsList, selectActiveProject }) {
     return (
-        <aside className="h-full overflow-x-auto bg-stone-950 rounded-tr-2xl basis-96 text-stone-50">
-            <h1 className="text-2xl">Your projects</h1>
-            <Button handleClick={handleAddBtnClick}>+ Add project</Button>
+        <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
+            <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">Your projects</h2>
+            <div>
+                <Button handleClick={handleAddBtnClick}>+ Add project</Button>
+            </div>
             <ul>
                 {projectsList.map(item => {
                     return (
