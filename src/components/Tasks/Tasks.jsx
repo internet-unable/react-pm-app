@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
+import Button from "../Button/Button.jsx";
 import Input from "../Input/Input.jsx";
 
 export default function Tasks() {
+    console.log('Tasks loaded');
     const taskNameValue = useRef();
     const [taskList, setTaskList] = useState([]);
 

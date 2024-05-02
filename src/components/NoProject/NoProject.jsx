@@ -2,6 +2,7 @@ import img from '../../assets/no-projects.png';
 import Button from '../Button/Button.jsx';
 
 export default function NoProject({ handleCreateBtnClick }) {
+    console.log('NoProject loaded');
     return (
         <section className="flex flex-col justify-center items-center grow h-full overflow-x-auto">
             <img className="size-20" src={img} alt="" />

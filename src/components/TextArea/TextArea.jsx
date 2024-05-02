@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 
 const TextArea = forwardRef(({ id, label, placeholder }, ref) => {
+    console.log('TextArea loaded');
     return (
         <>
             <label htmlFor={id}>{label}</label>
