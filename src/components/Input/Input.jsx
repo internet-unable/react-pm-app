@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 
-const Input = forwardRef(({ id, classes, label, type, placeholder }, ref) => {
+const Input = forwardRef(({ isTextarea, label, id, ...props }, ref) => {
     return (
         <>
             {label && <label htmlFor={id}>{label}</label>}
-            <input id={id} className={classes} type={type} placeholder={placeholder} ref={ref} />
+            { isTextarea ? <textarea id={id} {...props} ref={ref} /> : <input id={id} {...props} ref={ref} /> }
         </>
     );
 });

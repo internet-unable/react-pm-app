@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import Button from "../Button/Button.jsx";
 import Input from "../Input/Input.jsx";
-import TextArea from "../TextArea/TextArea.jsx";
 
 export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick }) {
     const projectTitle = useRef();
@@ -23,48 +22,43 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
     }
 
     return (
-        <form className="flex flex-col justify-center items-center grow h-full overflow-x-auto">
-            <ul>
-                <li>
-                    <Button handleClick={handleCancelBtnClick}>Cancel</Button>
-                </li>
-
-                <li>
-                    <Button handleClick={collectDataAndSave}>Save</Button>
-                </li>
-            </ul>
+        <section className="flex flex-col justify-center items-center grow h-full overflow-x-auto">
+            <menu>
+                <li><Button handleClick={handleCancelBtnClick}>Cancel</Button></li>
+                <li><Button handleClick={collectDataAndSave}>Save</Button></li>
+            </menu>
 
             <ul>
                 <li>
                     <Input
+                        ref={projectTitle}
                         id="title"
-                        classes={titleInvalid}
                         label="Title"
                         type="text"
                         placeholder="Title"
-                        ref={projectTitle}
-                    />
-                </li>
-
-                <li>
-                    <TextArea
-                        id="desc"
-                        label="Description"
-                        placeholder="Description"
-                        ref={projectDesc}
                     />
                 </li>
 
                 <li>
                     <Input
+                        ref={projectDesc}
+                        isTextarea
+                        id="desc"
+                        label="Description"
+                        placeholder="Description"
+                    />
+                </li>
+
+                <li>
+                    <Input
+                        ref={projectDueDate}
                         id="due-date"
                         label="Due date"
                         type="date"
                         placeholder="Due date"
-                        ref={projectDueDate}
                     />
                 </li>
             </ul>
-        </form>
+        </section>
     );
 }
