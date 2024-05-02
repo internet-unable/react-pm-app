@@ -22,7 +22,7 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
     }
 
     return (
-        <section className="w-[35rem] mt-16">
+        <section className="flex flex-col justify-center grow px-8">
             <menu className="flex items-center justify-end gap-4 my-4">
                 <li><Button isText handleClick={handleCancelBtnClick}>Cancel</Button></li>
                 <li><Button handleClick={collectDataAndSave}>Save</Button></li>
