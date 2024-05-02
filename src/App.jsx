@@ -11,7 +11,6 @@ const panels = {
 };
 
 function App() {
-    console.log('App loaded');
     const [activePanel, setActivePanel] = useState(panels.noProjectSelected);
     const [projectsList, setProjectsList] = useState([]);
     const [activeProject, setActiveProject] = useState();

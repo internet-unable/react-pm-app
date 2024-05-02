@@ -4,7 +4,6 @@ import Input from "../Input/Input.jsx";
 import TextArea from "../TextArea/TextArea.jsx";
 
 export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick }) {
-    console.log('CreateProject loaded');
     const projectTitle = useRef();
     const projectDesc = useRef();
     const projectDueDate = useRef();

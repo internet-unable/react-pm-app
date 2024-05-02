@@ -2,7 +2,6 @@ import Button from "../Button/Button.jsx";
 import Tasks from "../Tasks/Tasks.jsx";
 
 export default function SelectedProject({ project, handleDeleteBtnClick }) {
-    console.log('SelectedProject loaded');
     return (
         <section className="flex flex-col justify-center items-center grow h-full overflow-x-auto">
             <h1>{project.title}</h1>
