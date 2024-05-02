@@ -29,7 +29,7 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
             </menu>
 
             <ul>
-                <li>
+                <li className="flex flex-col gap-1 my-4">
                     <Input
                         ref={projectTitle}
                         id="title"
@@ -39,7 +39,7 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
                     />
                 </li>
 
-                <li>
+                <li className="flex flex-col gap-1 my-4">
                     <Input
                         ref={projectDesc}
                         isTextarea
@@ -49,7 +49,7 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
                     />
                 </li>
 
-                <li>
+                <li className="flex flex-col gap-1 my-4">
                     <Input
                         ref={projectDueDate}
                         id="due-date"
