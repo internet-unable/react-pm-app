@@ -53,6 +53,7 @@ export default function SelectedProject({ project, handleDeleteBtnClick }) {
                     />
                     <Button handleClick={handleAddTaskBtnClick}>Add task</Button>
                 </div>
+                {/* Todo - remove task in separate component */}
                 <ul>
                     {taskList.map(item => {
                         return (

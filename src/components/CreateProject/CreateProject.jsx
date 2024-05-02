@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Button from "../Button/Button.jsx";
 import Input from "../Input/Input.jsx";
 import TextArea from "../TextArea/TextArea.jsx";
@@ -7,14 +7,19 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
     const projectTitle = useRef();
     const projectDesc = useRef();
     const projectDueDate = useRef();
+    const [titleInvalid, setTitleInvalid] = useState('');
 
     function collectDataAndSave() {
-        handleSaveBtnClick({
-            id: Math.floor(Math.random() * 1000),
-            title: projectTitle.current.value,
-            desc: projectDesc.current.value,
-            dueDate: projectDueDate.current.value,
-        });
+        if (projectTitle.current.value) {
+            handleSaveBtnClick({
+                id: Math.floor(Math.random() * 1000),
+                title: projectTitle.current.value,
+                desc: projectDesc.current.value,
+                dueDate: projectDueDate.current.value,
+            });
+        } else {
+            setTitleInvalid('bg-red-500');
+        }
     }
 
     return (
@@ -33,6 +38,7 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
                 <li>
                     <Input
                         id="title"
+                        classes={titleInvalid}
                         label="Title"
                         type="text"
                         placeholder="Title"

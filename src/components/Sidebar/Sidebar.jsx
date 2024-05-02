@@ -10,7 +10,7 @@ export default function Sidebar({ handleAddBtnClick, projectsList, selectActiveP
                     return (
                         <li
                             onClick={() => selectActiveProject(item)}
-                            key={`${item.title}_${item.desc}_${item.dueDate}`}
+                            key={item.id}
                         >
                             {item.title}
                         </li>
