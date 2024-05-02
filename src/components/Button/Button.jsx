@@ -16,7 +16,6 @@ export default function Button({ handleClick, stylesType, children, ...props }) 
 
     return (
         <button
-            type="button"
             className={styles}
             {...props}
         >
