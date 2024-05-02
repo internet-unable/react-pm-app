@@ -25,6 +25,18 @@ function App() {
         setActivePanel(panels.noProjectSelected);
     }
 
+    function deleteSelectedProject(id) {
+        setProjectsList(prevProjectList => {
+            let projects = [...prevProjectList];
+            const project = projects.find(item => item.id === id);
+            const projectIndex = projects.indexOf(project);
+
+            projects.splice(projectIndex, 1);
+            return projects;
+        });
+        setActivePanel(panels.noProjectSelected);
+    }
+
     function selectActiveProject(item) {
         setActivePanel(panels.selectedProject);
         setActiveProject(item);
@@ -42,7 +54,7 @@ function App() {
                         />;
 
             case panels.selectedProject:
-                return <SelectedProject project={activeProject} />;
+                return <SelectedProject project={activeProject} handleDeleteBtnClick={deleteSelectedProject} />;
 
             default:
                 return <NoProject handleCreateBtnClick={() => setActivePanel(panels.addProject)} />;

@@ -10,6 +10,7 @@ export default function CreateProject({ handleCancelBtnClick, handleSaveBtnClick
 
     function collectDataAndSave() {
         handleSaveBtnClick({
+            id: Math.floor(Math.random() * 1000),
             title: projectTitle.current.value,
             desc: projectDesc.current.value,
             dueDate: projectDueDate.current.value,

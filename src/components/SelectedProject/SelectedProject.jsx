@@ -2,45 +2,43 @@ import { useRef, useState } from "react";
 import Button from "../Button/Button.jsx";
 import Input from "../Input/Input.jsx";
 
-export default function SelectedProject({ project }) {
+export default function SelectedProject({ project, handleDeleteBtnClick }) {
     const taskNameValue = useRef();
     const [taskList, setTaskList] = useState([]);
-
-    function handleDeleteBtnClick() {
-        // todo - delete project
-    }
 
     function handleAddTaskBtnClick() {
         if (taskNameValue.current.value) {
             setTaskList(prevTaskList => {
+                const taskName = taskNameValue.current.value;
+                taskNameValue.current.value = '';
+
                 return [
                     ...prevTaskList,
                     {
                         id: Math.floor(Math.random() * 1000),
-                        taskName: taskNameValue.current.value
+                        taskName: taskName
                     }
                     
                 ];
             });
         }
-        // todo - clear task name input, after click on btn
     }
 
     function handleClearTaskBtnClick(id) {
         setTaskList(prevTaskList => {
-            let array = [...prevTaskList];
-            const itemInArrayById = array.find(item => item.id === id);
-            const indexOfItemInArray = array.indexOf(itemInArrayById);
+            let taskList = [...prevTaskList];
+            const task = taskList.find(item => item.id === id);
+            const taskIndex = taskList.indexOf(task);
 
-            array.splice(indexOfItemInArray, 1);
-            return array;
+            taskList.splice(taskIndex, 1);
+            return taskList;
         });
     }
 
     return (
         <section className="flex flex-col justify-center items-center grow h-full overflow-x-auto">
             <h1>{project.title}</h1>
-            <Button>Delete</Button>
+            <Button handleClick={() => handleDeleteBtnClick(project.id)}>Delete</Button>
             <p>{project.dueDate}</p>
             <p>{project.desc}</p>
 
