@@ -25,7 +25,7 @@ export default function CreateProject({ onCancelProjectCreation, onSave }) {
     return (
         <section className="flex flex-col justify-center grow px-8">
             <menu className="flex items-center justify-end gap-4 my-4">
-                <li><Button onClick={onCancelProjectCreation} isText>Cancel</Button></li>
+                <li><Button onClick={onCancelProjectCreation} stylesType="text">Cancel</Button></li>
                 <li><Button onClick={handleSave}>Save</Button></li>
             </menu>
 
