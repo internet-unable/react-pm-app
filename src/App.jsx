@@ -49,15 +49,10 @@ function App() {
 
     function handleDeleteSelectedProject(id) {
         setAppState(prevState => {
-            let newProjectsArray = [...prevState.projects];
-            const currentProject = newProjectsArray.find(item => item.id === id);
-            const currentProjectIndex = newProjectsArray.indexOf(currentProject);
-            newProjectsArray.splice(currentProjectIndex, 1);
-
             return {
                 ...prevState,
                 selectedProjectId: undefined,
-                projects: [...newProjectsArray]
+                projects: prevState.projects.filter(item => item.id !== id)
             };
         });
     }

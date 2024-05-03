@@ -21,7 +21,7 @@ export default function Sidebar({ onCreateProject, onProjectSelect, projectsList
                     return (
                         <li key={item.id}>
                             <Button
-                                stylesType="custom"
+                                styleType="custom"
                                 className={btnStyles}
                                 onClick={() => onProjectSelect(item.id)}
                             >

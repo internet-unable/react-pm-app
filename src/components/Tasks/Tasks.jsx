@@ -37,18 +37,23 @@ export default function Tasks() {
 
     return (
         <div>
-            <h1>Tasks</h1>
-            <div>
-                <Input
-                    id="tasks"
-                    type="text"
-                    placeholder="Task name"
-                    ref={taskNameValue}
-                />
+            <h2 className="text-2xl font-bold text-stone-700 mb-4">Tasks</h2>
+
+            <div className="flex items-center gap-4">
+                <div className="w-64">
+                    <Input
+                        id="tasks"
+                        type="text"
+                        placeholder="Task name"
+                        ref={taskNameValue}
+                    />
+                </div>
                 <Button onClick={handleAddTaskBtnClick}>Add task</Button>
             </div>
 
-            <ul>
+            {taskList.length < 1 && <p className="text-stone-800 my-4">This project does not have any tasks yet.</p>}
+            {taskList.length >= 1 && 
+                <ul>
                 {taskList.map(item => {
                     return (
                         <li key={item.id}>
@@ -59,7 +64,7 @@ export default function Tasks() {
                         </li>
                     );
                 })}
-            </ul>
+            </ul>}
         </div>
     );
 }
