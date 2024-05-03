@@ -31,7 +31,7 @@ export default function Tasks({ taskList, onAdd, onDelete }) {
                 <p className="text-stone-600 mb-4">Oops... looks like you forgot to enter a task name.</p>
             </Modal>
 
-            <div className="w-1/3">
+            <div className="w-1/2">
                 <h2 className="text-2xl font-bold text-stone-700 mb-4">Tasks</h2>
 
                 <div className="flex items-center gap-4">

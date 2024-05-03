@@ -9,7 +9,7 @@ export default function SelectedProject({ project, onDeleteSelectedProject, onAd
     });
 
     return (
-        <section className="flex flex-col grow px-8">
+        <section className="w-1/2 flex flex-col px-8 overflow-x-auto">
             <div className="pb-4 mb-4 border-b-2 border-stone-300">
                 <div className="flex items-center justify-between">
                     <h1 className="text-3xl font-bold text-stone-600 mb-2">{project.title}</h1>

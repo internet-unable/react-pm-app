@@ -37,7 +37,7 @@ export default function CreateProject({ onCancelAddProject, onSave }) {
                 <p className="text-stone-600 mb-4">Please make sure you provide a valid value for every input field.</p>
             </Modal>
 
-            <section className="flex flex-col grow px-8">
+            <section className="w-1/2 flex flex-col px-8">
                 <menu className="flex items-center justify-end gap-4 my-4">
                     <li><Button onClick={onCancelAddProject} styleType="text">Cancel</Button></li>
                     <li><Button onClick={handleSave}>Save</Button></li>

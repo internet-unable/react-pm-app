@@ -9,7 +9,6 @@ function App() {
         selectedProjectId: undefined,
         projects: []
     });
-    console.log(appState);
 
     function handleCreateProject() {
         setAppState(prevState => {
