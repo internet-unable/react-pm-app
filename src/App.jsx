@@ -29,7 +29,7 @@ function App() {
         });
     }
 
-    function handleCancelProjectCreation() {
+    function handleCancelAddProject() {
         setAppState(prevState => {
             return {
                 ...prevState,
@@ -70,7 +70,7 @@ function App() {
 
         case null:
             content = <CreateProject
-                        onCancelProjectCreation={handleCancelProjectCreation}
+                        onCancelAddProject={handleCancelAddProject}
                         onSave={handleAddProject}
                     />;
             break;

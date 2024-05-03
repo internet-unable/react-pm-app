@@ -13,9 +13,9 @@ const Modal = forwardRef(({ children }, ref) => {
     });
 
     return createPortal(
-        <dialog ref={dialog}>
+        <dialog ref={dialog} className="backdrop:bg-stone-900/90 p-4 rounded-md shadow-md">
             {children}
-            <form method="dialog">
+            <form method="dialog" className="flex justify-end mt-4">
                 <Button>Close</Button>
             </form>
         </dialog>,

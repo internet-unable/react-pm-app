@@ -1,6 +1,6 @@
-export default function Button({ handleClick, stylesType, children, ...props }) {
+export default function Button({ handleClick, styleType, children, ...props }) {
     let styles;
-    switch (stylesType) {
+    switch (styleType) {
         case 'text':
             styles = 'text-stone-600 hover:text-stone-950';
             break;

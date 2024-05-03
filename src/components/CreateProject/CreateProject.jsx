@@ -3,20 +3,20 @@ import Button from "../Button/Button.jsx";
 import Input from "../Input/Input.jsx";
 import Modal from "../Modal/Modal.jsx";
 
-export default function CreateProject({ onCancelProjectCreation, onSave }) {
+export default function CreateProject({ onCancelAddProject, onSave }) {
     const modal = useRef();
     const projectTitle = useRef();
     const projectDesc = useRef();
     const projectDueDate = useRef();
 
-    function isValidFields() {
-        return projectTitle.current.value.trim() !== '' || projectDesc.current.value.trim() !== '' || projectDueDate.current.value.trim() !== '';
+    function areValidFields() {
+        return projectTitle.current.value.trim() !== '' && projectDesc.current.value.trim() !== '' && projectDueDate.current.value.trim() !== '';
     }
 
     function handleSave() {
-        const validationResult = isValidFields();
+        const areValid = areValidFields();
 
-        if (validationResult) {
+        if (areValid) {
             onSave({
                 id: Math.floor(Math.random() * 1000),
                 title: projectTitle.current.value,
@@ -31,11 +31,14 @@ export default function CreateProject({ onCancelProjectCreation, onSave }) {
     return (
         <>
             <Modal ref={modal}>
-                <h2>Error</h2>
+                <h2 className="text-xl font-bold text-stone-700 my-5">Invalid input</h2>
+                <p className="text-stone-600 mb-4">Oops... looks like you forgot to enter a value.</p>
+                <p className="text-stone-600 mb-4">Please make sure you provide a valid value for every input field.</p>
             </Modal>
-            <section className="flex flex-col justify-center grow px-8">
+
+            <section className="flex flex-col grow px-8">
                 <menu className="flex items-center justify-end gap-4 my-4">
-                    <li><Button onClick={onCancelProjectCreation} stylesType="text">Cancel</Button></li>
+                    <li><Button onClick={onCancelAddProject} styleType="text">Cancel</Button></li>
                     <li><Button onClick={handleSave}>Save</Button></li>
                 </menu>
 
