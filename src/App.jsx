@@ -38,11 +38,11 @@ function App() {
         });
     }
 
-    function handleProjectSelect(item) {
+    function handleProjectSelect(id) {
         setAppState(prevState => {
             return {
                 ...prevState,
-                selectedProjectId: item.id
+                selectedProjectId: id
             }
         });
     }
@@ -75,12 +75,12 @@ function App() {
                     />;
             break;
 
-            default:
-                content = <SelectedProject
-                            project={appState.projects.find(item => item.id === appState.selectedProjectId)}
-                            onDeleteSelectedProject={handleDeleteSelectedProject}
-                        />;
-                break;
+        default:
+            content = <SelectedProject
+                        project={appState.projects.find(item => item.id === appState.selectedProjectId)}
+                        onDeleteSelectedProject={handleDeleteSelectedProject}
+                    />;
+            break;
     }
 
     return (
@@ -89,6 +89,7 @@ function App() {
                 onCreateProject={handleCreateProject}
                 onProjectSelect={handleProjectSelect}
                 projectsList={appState.projects}
+                selectedProjectId={appState.selectedProjectId}
             />
 
             {content}
