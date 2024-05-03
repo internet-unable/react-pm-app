@@ -1,7 +1,8 @@
 import Button from "../Button/Button.jsx";
 
 export default function Sidebar({ onCreateProject, onProjectSelect, projectsList, selectedProjectId }) {
-    let btnStyles = 'w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800';
+    const btnStylesDefault = 'w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-200 hover:bg-stone-800';
+    const btnStylesActive = 'w-full text-left px-2 py-1 rounded-sm my-1 text-stone-200 bg-stone-800 hover:text-stone-200 hover:bg-stone-800';
 
     return (
         <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
@@ -12,17 +13,11 @@ export default function Sidebar({ onCreateProject, onProjectSelect, projectsList
 
             <ul className="mt-8">
                 {projectsList.map(item => {
-                    if (item.id === selectedProjectId) {
-                        btnStyles += ' text-stone-200 bg-stone-800';
-                    } else {
-                        btnStyles += ' text-stone-400';
-                    }
-
                     return (
                         <li key={item.id}>
                             <Button
                                 styleType="custom"
-                                className={btnStyles}
+                                className={item.id === selectedProjectId ? btnStylesActive : btnStylesDefault}
                                 onClick={() => onProjectSelect(item.id)}
                             >
                                 {item.title}

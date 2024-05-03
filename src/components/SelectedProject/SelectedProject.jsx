@@ -1,7 +1,7 @@
 import Button from "../Button/Button.jsx";
 import Tasks from "../Tasks/Tasks.jsx";
 
-export default function SelectedProject({ project, onDeleteSelectedProject, taskList, onAddTask, onDeleteTask }) {
+export default function SelectedProject({ project, onDeleteSelectedProject, onAddTask, onDeleteTask }) {
     const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
@@ -19,7 +19,7 @@ export default function SelectedProject({ project, onDeleteSelectedProject, task
                 <p className="text-stone-600 whitespace-pre-wrap">{project.desc}</p>
             </div>
 
-            <Tasks taskList={taskList} onAdd={onAddTask} onDelete={onDeleteTask} />
+            <Tasks taskList={project.tasks} onAdd={onAddTask} onDelete={onDeleteTask} />
         </section>
     );
 }

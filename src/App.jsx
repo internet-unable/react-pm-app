@@ -7,9 +7,9 @@ import SelectedProject from "./components/SelectedProject/SelectedProject.jsx";
 function App() {
     const [appState, setAppState] = useState({
         selectedProjectId: undefined,
-        projects: [],
-        tasks: []
+        projects: []
     });
+    console.log(appState);
 
     function handleCreateProject() {
         setAppState(prevState => {
@@ -66,10 +66,17 @@ function App() {
                     projectId: prevState.selectedProjectId,
                     taskName: taskName
                 };
-    
+                const updateProjectWithTask = prevState.projects.map(item => {
+                    if (item.id === prevState.selectedProjectId) {
+                        item.tasks = [...item.tasks, newTask];
+                    }
+
+                    return item;
+                });
+
                 return {
                     ...prevState,
-                    tasks: [...prevState.tasks, newTask]
+                    projects: updateProjectWithTask
                 }
             });
         }
@@ -77,9 +84,17 @@ function App() {
 
     function handleDeleteTask(id) {
         setAppState(prevState => {
+            const deleteTaskFromProject = prevState.projects.map(project => {
+                if (project.id === prevState.selectedProjectId) {
+                    project.tasks = project.tasks.filter(task => task.id !== id);
+                }
+
+                return project;
+            });
+
             return {
                 ...prevState,
-                tasks: prevState.tasks.filter(item => item.id !== id)
+                projects: deleteTaskFromProject
             }
         });
     }
@@ -101,7 +116,6 @@ function App() {
             content = <SelectedProject
                         project={appState.projects.find(item => item.id === appState.selectedProjectId)}
                         onDeleteSelectedProject={handleDeleteSelectedProject}
-                        taskList={appState.tasks}
                         onAddTask={handleAddTask}
                         onDeleteTask={handleDeleteTask}
                     />;

@@ -22,6 +22,7 @@ export default function CreateProject({ onCancelAddProject, onSave }) {
                 title: projectTitle.current.value,
                 desc: projectDesc.current.value,
                 dueDate: projectDueDate.current.value,
+                tasks: []
             });
         } else {
             modal.current.open();
